@@ -8,9 +8,9 @@
         <version>2.7.1</version>
         <relativePath/>
     </parent>
-    <groupId>com.example</groupId>
+    <groupId>com.dkomyshnyi</groupId>
     <artifactId>ec2_crud</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.1</version>
     <name>ec2_crud</name>
     <description>ec2_crud</description>
     <properties>
