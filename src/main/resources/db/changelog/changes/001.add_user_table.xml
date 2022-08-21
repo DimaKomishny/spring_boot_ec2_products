@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <changeSet id="create_users_table" author="Dmytro_Komyshnyi">
+        <preConditions onFail="MARK_RAN">
+            <not><tableExists tableName="users"/></not>
+        </preConditions>
+        <createTable tableName="users">
+            <column name="id" type="uuid">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="status" type="varchar(255)" defaultValue="ACTIVE">
+                <constraints nullable="false"/>
+            </column>
+            <column name = "username" type="varchar(255)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name = "password" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name = "role" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+<!--    <changeSet id="create_roles_table" author="Dmytro_Komyshnyi">-->
+<!--        <preConditions onFail="MARK_RAN">-->
+<!--            <not><tableExists tableName="roles"/></not>-->
+<!--        </preConditions>-->
+<!--        <createTable tableName="roles">-->
+<!--            <column name="id" type="uuid">-->
+<!--                <constraints primaryKey="true"/>-->
+<!--            </column>-->
+<!--            <column name = "name" type="varchar(255)">-->
+<!--                <constraints nullable="false" unique="true"/>-->
+<!--            </column>-->
+<!--        </createTable>-->
+<!--    </changeSet>-->
+
+<!--    <changeSet id="create_user_roles_table" author="Dmytro_Komyshnyi">-->
+<!--        <preConditions onFail="MARK_RAN">-->
+<!--            <tableExists tableName="roles"/>-->
+<!--            <tableExists tableName="users"/>-->
+<!--            <not><tableExists tableName="user_roles"/></not>-->
+<!--        </preConditions>-->
+<!--        <createTable tableName="user_roles">-->
+<!--            <column name="user_id" type="uuid">-->
+<!--                <constraints primaryKey="true"/>-->
+<!--            </column>-->
+<!--            <column name="role_id" type="uuid">-->
+<!--                <constraints primaryKey="true"/>-->
+<!--            </column>-->
+<!--        </createTable>-->
+<!--        <addForeignKeyConstraint baseTableName="user_roles"-->
+<!--                                 baseColumnNames="user_id"-->
+<!--                                 constraintName="fk_users_roles_user"-->
+<!--                                 referencedTableName="users"-->
+<!--                                 referencedColumnNames="id"/>-->
+<!--        <addForeignKeyConstraint baseTableName="user_roles"-->
+<!--                                 baseColumnNames="role_id"-->
+<!--                                 constraintName="fk_users_roles_role"-->
+<!--                                 referencedTableName="roles"-->
+<!--                                 referencedColumnNames="id"/>-->
+<!--    </changeSet>-->
+
+</databaseChangeLog>

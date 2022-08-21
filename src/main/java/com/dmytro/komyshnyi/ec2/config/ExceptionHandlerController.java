@@ -1,4 +1,4 @@
-package com.dmytro.komyshnyi.ec2.controller;
+package com.dmytro.komyshnyi.ec2.config;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

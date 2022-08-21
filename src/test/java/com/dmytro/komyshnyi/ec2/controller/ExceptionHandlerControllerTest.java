@@ -1,5 +1,6 @@
 package com.dmytro.komyshnyi.ec2.controller;
 
+import com.dmytro.komyshnyi.ec2.config.ExceptionHandlerController;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.springframework.http.HttpStatus;
