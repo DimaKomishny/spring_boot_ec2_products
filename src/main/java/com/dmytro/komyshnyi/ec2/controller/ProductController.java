@@ -4,12 +4,14 @@ import com.dmytro.komyshnyi.ec2.dto.ProductDto;
 import com.dmytro.komyshnyi.ec2.facade.ProductFacade;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -18,6 +20,7 @@ import java.util.Map;
 import java.util.UUID;
 
 @RestController
+@RequestMapping("/products")
 public class ProductController {
 
     private ProductFacade productFacade;
@@ -26,24 +29,28 @@ public class ProductController {
         this.productFacade = productFacade;
     }
 
-    @GetMapping("/product/{id}")
+    @GetMapping("/{id}")
+    @PreAuthorize("hasAnyAuthority('read')")
     public ProductDto getProduct(@PathVariable UUID id) {
         return productFacade.findById(id);
     }
 
-    @GetMapping("/products")
+    @GetMapping
+    @PreAuthorize("hasAnyAuthority('read')")
     public List<ProductDto> getProducts() {
         return productFacade.getAll();
     }
 
-    @PostMapping("/product")
+    @PostMapping
     @Transactional
+    @PreAuthorize("hasAnyAuthority('write')")
     public ResponseEntity<Map<String, UUID>> saveProduct(@RequestBody ProductDto product) {
         return productFacade.save(product);
     }
 
-    @DeleteMapping("/product/{id}")
+    @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
+    @PreAuthorize("hasAnyAuthority('write')")
     public void deleteProduct(@PathVariable UUID id) {
         productFacade.delete(id);
     }
