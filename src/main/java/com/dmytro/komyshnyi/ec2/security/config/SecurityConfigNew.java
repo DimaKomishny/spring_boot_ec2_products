@@ -1,5 +1,6 @@
-package com.dmytro.komyshnyi.ec2.security;
+package com.dmytro.komyshnyi.ec2.security.config;
 
+import com.dmytro.komyshnyi.ec2.security.jwt.JwtConfigurer;
 import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -23,7 +24,7 @@ public class SecurityConfigNew {
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        http
+        return http
                 .csrf().disable()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
@@ -32,8 +33,8 @@ public class SecurityConfigNew {
                 .anyRequest()
                 .authenticated()
                 .and()
-                .apply(jwtConfigurer);
-        return http.build();
+                .apply(jwtConfigurer)
+                .and().build();
     }
 
     @Bean
@@ -50,9 +51,4 @@ public class SecurityConfigNew {
                 .and()
                 .build();
     }
-
-//    @Bean
-//    public AuthenticationManager authenticationManagerBean() throws Exception {
-//        return super.authenticationManagerBean();
-//    }
 }

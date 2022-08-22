@@ -1,4 +1,4 @@
-package com.dmytro.komyshnyi.ec2.security;
+package com.dmytro.komyshnyi.ec2.security.model;
 
 import com.dmytro.komyshnyi.ec2.entity.Status;
 import com.dmytro.komyshnyi.ec2.entity.User;

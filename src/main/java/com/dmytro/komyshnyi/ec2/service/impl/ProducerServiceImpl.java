@@ -49,6 +49,6 @@ public class ProducerServiceImpl implements ProducerService {
 
     @Override
     public List<Product> findProductByProducerId(UUID producerId) {
-        return productRepository.findAllByProdcuerId(producerId);
+        return productRepository.findAllByProducerId(producerId);
     }
 }

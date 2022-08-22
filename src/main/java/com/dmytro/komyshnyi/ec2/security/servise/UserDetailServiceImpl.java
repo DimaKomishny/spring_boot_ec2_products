@@ -1,7 +1,8 @@
-package com.dmytro.komyshnyi.ec2.security;
+package com.dmytro.komyshnyi.ec2.security.servise;
 
 import com.dmytro.komyshnyi.ec2.entity.User;
 import com.dmytro.komyshnyi.ec2.repository.UserRepository;
+import com.dmytro.komyshnyi.ec2.security.model.SecurityUser;
 import lombok.AllArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

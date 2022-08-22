@@ -14,6 +14,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import java.math.BigDecimal;
 import java.util.UUID;
 
 @Entity
@@ -35,6 +36,8 @@ public class Product {
     private String name;
     @Column(name = "description")
     private String description;
+    @Column(name = "price")
+    private BigDecimal price;
     @ManyToOne(cascade = {CascadeType.DETACH, CascadeType.REFRESH})
     @JoinColumn(name="producer_id")
     private Producer producer;

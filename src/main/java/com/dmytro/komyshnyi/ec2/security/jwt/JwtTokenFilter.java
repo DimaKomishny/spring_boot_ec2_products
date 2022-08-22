@@ -1,9 +1,9 @@
-package com.dmytro.komyshnyi.ec2.security;
+package com.dmytro.komyshnyi.ec2.security.jwt;
 
+import com.dmytro.komyshnyi.ec2.security.exception.JwtAuthenticationException;
 import lombok.AllArgsConstructor;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.GenericFilterBean;
 
@@ -14,7 +14,6 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.security.Security;
 
 @Component
 @AllArgsConstructor

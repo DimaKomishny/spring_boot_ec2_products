@@ -1,5 +1,6 @@
-package com.dmytro.komyshnyi.ec2.security;
+package com.dmytro.komyshnyi.ec2.security.config;
 
+import com.dmytro.komyshnyi.ec2.security.jwt.JwtConfigurer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;

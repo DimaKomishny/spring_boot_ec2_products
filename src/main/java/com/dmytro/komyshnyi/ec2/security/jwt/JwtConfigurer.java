@@ -1,4 +1,4 @@
-package com.dmytro.komyshnyi.ec2.security;
+package com.dmytro.komyshnyi.ec2.security.jwt;
 
 import lombok.AllArgsConstructor;
 import org.springframework.security.config.annotation.SecurityConfigurerAdapter;

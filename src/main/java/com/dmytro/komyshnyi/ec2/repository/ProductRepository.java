@@ -11,5 +11,5 @@ import java.util.UUID;
 public interface ProductRepository extends JpaRepository<Product, UUID> {
 
     @Query("SELECT p FROM Product p WHERE p.producer.id = :producerId")
-    List<Product> findAllByProdcuerId(@Param("producerId") UUID producerId);
+    List<Product> findAllByProducerId(@Param("producerId") UUID producerId);
 }

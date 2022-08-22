@@ -3,6 +3,8 @@ package com.dmytro.komyshnyi.ec2.controller;
 import com.dmytro.komyshnyi.ec2.dto.ProducerDto;
 import com.dmytro.komyshnyi.ec2.dto.ProductDto;
 import com.dmytro.komyshnyi.ec2.facade.ProducerFacade;
+import io.micrometer.core.annotation.Timed;
+import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -21,13 +23,11 @@ import java.util.UUID;
 
 @RestController
 @RequestMapping("/producers")
+@AllArgsConstructor
 public class ProducerController {
 
-    private ProducerFacade producerFacade;
+    private final ProducerFacade producerFacade;
 
-    public ProducerController(ProducerFacade producerFacade) {
-        this.producerFacade = producerFacade;
-    }
 
     @GetMapping
     @PreAuthorize("hasAnyAuthority('read')")

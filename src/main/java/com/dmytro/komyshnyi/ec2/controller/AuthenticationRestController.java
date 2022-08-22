@@ -2,8 +2,7 @@ package com.dmytro.komyshnyi.ec2.controller;
 
 import com.dmytro.komyshnyi.ec2.dto.AuthenticationRequestDto;
 import com.dmytro.komyshnyi.ec2.entity.User;
-import com.dmytro.komyshnyi.ec2.repository.UserRepository;
-import com.dmytro.komyshnyi.ec2.security.JwtTokenProvider;
+import com.dmytro.komyshnyi.ec2.security.jwt.JwtTokenProvider;
 import com.dmytro.komyshnyi.ec2.service.UserService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -17,7 +16,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.HashMap;
 import java.util.Map;
 
 @RestController

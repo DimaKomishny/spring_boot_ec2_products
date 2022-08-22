@@ -6,8 +6,9 @@ services:
     ports:
       - 5432:5432
     environment:
-      POSTGRES_DB: product_db
-      POSTGRES_PASSOWORD: root
+      - POSTGRES_DB=product_db
+      - POSTGRES_PASSOWORD=root
+      - POSTGRES_USER=postgre
     restart: always
   app:
     image: spring-boot-product
@@ -15,10 +16,30 @@ services:
     ports:
       - 8080:8080
     environment:
-      spring.datasource.url: jdbc:postgresql://@db:5432/product_db
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/product_db
     restart: always
     depends_on:
       - db
+  grafana:
+    build: './config/grafana'
+    ports:
+      - 3000:3000
+    volumes:
+      - ./grafana:/var/lib/grafana
+    environment:
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+    depends_on:
+      - app
 
+  prometheus:
+    image: prom/prometheus
+    ports:
+      - 9090:9090
+    volumes:
+      - ./config/prometheus.yml:/etc/prometheus/prometheus.yml
+      - ./prometheus:/prometheus
+    depends_on:
+      - app
 
 

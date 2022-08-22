@@ -1,4 +1,4 @@
-package com.dmytro.komyshnyi.ec2.security;
+package com.dmytro.komyshnyi.ec2.security.exception;
 
 import lombok.Getter;
 import org.springframework.http.HttpStatus;

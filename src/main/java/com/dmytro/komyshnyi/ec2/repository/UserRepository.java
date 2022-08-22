@@ -1,6 +1,7 @@
 package com.dmytro.komyshnyi.ec2.repository;
 
 import com.dmytro.komyshnyi.ec2.entity.User;
+import io.micrometer.core.annotation.Timed;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

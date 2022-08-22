@@ -18,6 +18,7 @@ public class ProductMapper {
                 .id(product.getId())
                 .name(product.getName())
                 .description(product.getDescription())
+                .price(product.getPrice())
                 .producer(producerMapper.toProducerDto(product.getProducer()))
                 .build();
     }
@@ -26,8 +27,9 @@ public class ProductMapper {
         return Product.builder()
                 .id(productDto.getId())
                 .name(productDto.getName())
-                .producer(producerMapper.toProducer(productDto.getProducer()))
                 .description(productDto.getDescription())
+                .price(productDto.getPrice())
+                .producer(producerMapper.toProducer(productDto.getProducer()))
                 .build();
     }
 }

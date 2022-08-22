@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <changeSet id="added_price_column_to_products" author="Dmytro_Komyshnyi">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <columnExists tableName="products" columnName="price"/>
+            </not>
+        </preConditions>
+        <addColumn tableName="products">
+            <column name="price"
+                    type="money"
+                    defaultValue="0">
+                <constraints nullable="false"/>
+            </column>
+        </addColumn>
+    </changeSet>
+</databaseChangeLog>
