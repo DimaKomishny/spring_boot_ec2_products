@@ -28,7 +28,6 @@ public class ProducerController {
 
     private final ProducerFacade producerFacade;
 
-
     @GetMapping
     @PreAuthorize("hasAnyAuthority('read')")
     public List<ProducerDto> getAll() {
